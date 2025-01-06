@@ -89,6 +89,18 @@
                     <p>A fun and interactive Pokémon guessing game. </p>
                 </div>
             </div>
+            <div class="project-box">
+                <div class="project-info">
+                    <h4>Coming Soon</h4>
+                    <p>Under Development. </p>
+                </div>
+            </div>
+            <div class="project-box">
+                <div class="project-info">
+                    <h4>Coming Soon</h4>
+                    <p>Under Development. </p>
+                </div>
+            </div>
             
         </div>
     </section>
@@ -250,17 +262,47 @@
 
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me</span></h2>
-        <form action="">
+        <form id="contact-form">
+            <!-- Hidden field for Web3Forms access key -->
+            <input type="hidden" name="access_key" value="3c39ae03-56da-4105-8035-37d4245ba325">
+    
             <div class="input-box">
                 <input type="text" name="name" placeholder="Name" required>
-                <input type="email" name="name" placeholder="Email" required>
-                <input type="number" name="name" placeholder="Phone Number" required>
-                <input type="text" name="name" placeholder="Subject">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="number" name="phone" placeholder="Phone Number" required>
+                <input type="text" name="subject" placeholder="Subject">
             </div>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+            <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
             <input type="submit" value="Send Message" class="btn">
         </form>
+        <!-- Success Message -->
+        <div id="success-message" style="display:none; color: green; margin-top: 10px;">
+            Message successfully sent!
+        </div>
     </section>
+    
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
+            const formData = new FormData(this); // Collect form data
+    
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                if (response.ok) {
+                    document.getElementById('success-message').style.display = 'block'; // Show success message
+                    this.reset(); // Reset form fields
+                } else {
+                    alert('There was an error sending your message. Please try again later.');
+                }
+            } catch (error) {
+                alert('There was an error sending your message. Please try again later.');
+            }
+        });
+    </script>
+    
 
     <footer class="footer">
         <div class="social">
@@ -279,9 +321,9 @@
         </div>
         <ul class="list">
             <li><a href="#">FAQ</a></li>
-            <li><a href="#">Projects</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#contact">Contact</a></li>
             <li><a href="#">Privacy Policy</a></li>
         </ul>
         <p class="copyright">
