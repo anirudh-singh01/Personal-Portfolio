@@ -28,12 +28,10 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     event.preventDefault(); // Prevent default form submission
 
     const formData = new FormData(this); // Collect form data
-    const successMessage = document.getElementById('success-message');
-    const errorMessage = document.getElementById('error-message');
+    const popup = document.getElementById('popup-notification'); // Pop-up notification
 
-    // Hide any previous messages
-    successMessage.style.display = 'none';
-    errorMessage.style.display = 'none';
+    // Hide popup initially
+    popup.classList.add('hidden');
 
     try {
         const response = await fetch('https://api.web3forms.com/submit', {
@@ -42,12 +40,31 @@ document.getElementById('contact-form').addEventListener('submit', async functio
         });
 
         if (response.ok) {
-            successMessage.style.display = 'block'; // Show success message
+            showPopup('Message successfully sent!', 'success');
             this.reset(); // Reset form fields
         } else {
-            errorMessage.style.display = 'block'; // Show error message
+            showPopup('Error sending message. Please try again later.', 'error');
         }
     } catch (error) {
-        errorMessage.style.display = 'block'; // Show error message
+        showPopup('Error sending message. Please try again later.', 'error');
     }
 });
+
+/**
+ * Function to Show Pop-up Notification
+ */
+function showPopup(message, type) {
+    const popup = document.getElementById('popup-notification');
+    popup.textContent = message;
+
+    // Add success or error class
+    popup.className = `popup ${type}`;
+
+    // Show popup
+    popup.classList.remove('hidden');
+
+    // Hide popup after 3 seconds
+    setTimeout(() => {
+        popup.classList.add('hidden');
+    }, 3000);
+}

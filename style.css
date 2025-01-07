@@ -614,6 +614,36 @@ span {
     background-color: var(--hover-color);
 }
 
+/* Pop-up Notification */
+.popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+/* Success Notification */
+.popup.success {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Error Notification */
+.popup.error {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Hide Notification Initially */
+.hidden {
+    display: none;
+}
+
 
 /* Footer Section */
 
