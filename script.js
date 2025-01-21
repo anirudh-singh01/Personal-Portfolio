@@ -63,7 +63,7 @@ function showPopup(message, type) {
     // Show popup
     popup.classList.remove('hidden');
 
-    // Hide popup after 3 seconds
+    // Hide popup after 3 seconds 
     setTimeout(() => {
         popup.classList.add('hidden');
     }, 3000);
