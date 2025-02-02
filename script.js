@@ -31,7 +31,6 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     const popup = document.getElementById('popup-notification'); // Pop-up notification
 
     // Hide popup initially
-    
     popup.classList.add('hidden');
 
     try {
