@@ -51,6 +51,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
 });
 
 /**
+ * 
  * Function to Show Pop-up Notification
  */
 function showPopup(message, type) {
