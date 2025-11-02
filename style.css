@@ -16,6 +16,7 @@
     --second-bg-color : #161616;
     --text-color : #fff;
     --main-color: #e1352c;
+    --hover-color: #c72d25;
 }
 html {
     font-size: 62.5%;
@@ -99,6 +100,11 @@ html::-webkit-scrollbar-thumb {
     color: var(--main-color);
     display: none;
     cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#menu-icon.fa-xmark {
+    transform: rotate(180deg);
 }
 
 /* Responsive Design for Smaller Screens */
@@ -451,7 +457,7 @@ span {
     bottom: 0;
     left: 50%;
     margin-left: -3px;
-    z-index: -2px;
+    z-index: -2;
 }
 .experience .container {
     padding: 10px 40px;
@@ -696,7 +702,7 @@ span {
     display: inline-block;
     padding: 0 15px;
 }
-footer .copyright{
+.footer .copyright {
     margin-top: 50px;
     text-align: center;
     font-size: 16px;
@@ -726,7 +732,7 @@ footer .copyright{
         padding: 2rem 3%;
     }
 }
-@media (max-width:895) {
+@media (max-width:895px) {
     .projects h2 {
         margin-bottom: 3rem;
     }
